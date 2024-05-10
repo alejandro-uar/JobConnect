@@ -5,6 +5,7 @@
                 name="{{$user->name}}"
                 email="{{$user->email}}"
                 pass="{{$user->role_id}} "
+                color="{{$user->color}}"
         >
         </x-input>
     </x-form>
