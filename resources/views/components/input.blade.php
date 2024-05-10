@@ -16,14 +16,17 @@
                 <option value="1">Admin</option>
                 <option value="2">Usuario</option>
               </select>
-              
+            <select name="color" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="Default">Default</option>    
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+              </select>
             <input type="password" name="password" placeholder="Password" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
             @error('password')
                 <p class="text-red-500 text-sm">{{ $message }}</p>
             @enderror
             @break
         @case('actualizar')
-            <input type="file" name="uri" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
             <input type="text" name="name" value="{{ $name }}" placeholder="Name" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
             <input type="text" name="email" value="{{ $email }}" placeholder="Email" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
             @error('email')
@@ -32,6 +35,11 @@
             <select name="role_id" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
                 <option value="1">Admin</option>
                 <option value="2">Usuario</option>
+              </select>
+            <select name="color" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="Default">Default</option>
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
               </select>
             @break
         @default

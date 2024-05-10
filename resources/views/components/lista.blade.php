@@ -5,7 +5,7 @@
             <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ asset('storage/images/' . $user->uri) }}" alt="">
             <div class="min-w-0 flex-auto">
               <p class="text-sm font-semibold leading-6 text-gray-900">{{$user->name}}</p>
-              <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$user->email}} | {{$user->role->role_name}}</p>
+              <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$user->email}} | {{$user->role ? $user->role->role_name : 'Sin rol asignado'}}</p>
             </div>
           </div>
           <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">

@@ -9,14 +9,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [Authenticate::class, 'get_form'])->name('login');
 Route::post('/sing_in', [Authenticate::class, 'authenticate'])->name('sing_in');
 
+
 Route::middleware('auth')->group(function(){
-    Route::get('/', [Crud::class, 'index'])->name('index');
+    Route::get('/home', [Crud::class, 'index'])->name('index');
     Route::get('/logout', [Authenticate::class, 'logout'])->name('logout');
     Route::get('/red', [PostController::class, 'get_all'])->name('red');
     Route::get('/red/add_post',[PostController::class, 'get_form'])->name('post_form');
     Route::post('/post',[PostController::class, 'post'])->name('post');
     Route::get('/perfil/{id}', [Crud::class, 'actualizar_view_perfil'])->name('view_edit_p');
-    Route::post('/perfil/{id}', [Crud::class, 'actu_perfil'])->name('edit_p');
+    Route::post('/perfil-update/{id}', [Crud::class, 'actu_perfil'])->name('edit_p');
 });
 
 

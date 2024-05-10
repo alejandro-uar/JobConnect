@@ -50,6 +50,7 @@ class Crud extends Controller
         $user->role_id = intval($request->role_id);
         $user->password = Hash::make($request->password);
         $user->uri = $filaName;
+        $user->color = $request->color;
         $user->save();
 
         return redirect()->route('index')->with('exito','Carga exitosa!');
@@ -64,15 +65,12 @@ class Crud extends Controller
     
     public function actualizar(Request $request,$id)
     {   
-        $file = $request->file('uri');
-        $filaName = time().'.'.$file->extension();
-        $file->storeAs('public/images', $filaName);
-
+        
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role_id = intval($request->role_id);
-        $user->uri = $filaName;
+        $user->color = $request->color;
         $user->save();
 
         return redirect()->route('index');
@@ -84,22 +82,35 @@ class Crud extends Controller
 
         return view('actualizar_perfil', ['user'=>$user]);
     }
-    public function actu_perfil(Request $request,$id)
+    public function actu_perfil(Request $request, $id)
     {   
-        $file = $request->file('uri');
-        $filaName = time().'.'.$file->extension();
-        $file->storeAs('public/images', $filaName);
-
         $user = User::find($id);
+    
+        // Obtener el nombre de archivo actual del usuario
+        $currentFileName = $user->uri;
+    
+        // Verificar si se proporcionó un nuevo archivo
+        if ($request->hasFile('uri')) {
+            $file = $request->file('uri');
+            $filaName = time().'.'.$file->extension();
+            $file->storeAs('public/images', $filaName);
+        } else {
+            // Si no se proporciona un nuevo archivo, conservar el nombre de archivo actual
+            $filaName = $currentFileName;
+        }
+    
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role_id = intval($request->role_id);
+        // Asignar el nombre de archivo (nuevo o actual) al usuario
         $user->uri = $filaName;
         $user->color = $request->color;
         $user->save();
-
+    
         return redirect()->route('index');
     }
+    
+
 
     public function eliminar($id)
     {
