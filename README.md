@@ -17,4 +17,11 @@ Esta aplicación permite a los usuarios buscar trabajos, gestionar sus perfiles 
 
 ## Imagenes del Proyecto
 - **Login**:
+![login](https://github.com/user-attachments/assets/b3bc54b3-4fd3-4799-8aa1-ac44da620383)
+- **Perfil**:
+![perfil](https://github.com/user-attachments/assets/3a7428d3-c54f-49dd-9b42-404cf08cdde9)
+- **Actualizacion del perfil**:
+![2](https://github.com/user-attachments/assets/be7af3d6-5681-4c7e-817a-404dc81eee44)
+- **Red de posteos**:
+![4](https://github.com/user-attachments/assets/79b558f6-97ce-42a7-8259-4cd5ec1ede08)
 
